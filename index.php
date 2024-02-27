@@ -15,28 +15,59 @@
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
-  <ul>
-    <?php foreach($hotels as $hotel): ?>
-      <li>
-        <?=$hotel["name"] ?>
-      </li>
-      <li>  
-        <?=$hotel["description"] ?>
-      </li>
-      <li>  
-        <?=$hotel["parking"] ?>
-      </li>
-      <li>  
-        <?=$hotel["vote"] ?>
-      </li>
-      <li>  
-        <?=$hotel["distance_to_center"] ?>
-      </li>
-      <li>
-        <br>
-      </li>
-    <?php endforeach; ?>
-  </ul>
+  
+  <div class="col-10 mx-auto mt-5">
+    <table class="table table-bordered">
+
+      <tbody>
+        <tr>
+          <th scope="row">Name</th>
+          <?php foreach($hotels as $hotel): ?>
+            <td>
+              <?=$hotel["name"] ?>
+            </td>
+          <?php endforeach; ?>
+        </tr>
+
+        <tr>
+          <th scope="row">Description</th>
+            <?php foreach($hotels as $hotel): ?>
+              <td>
+                <?=$hotel["description"] ?>
+              </td>
+            <?php endforeach; ?>
+        </tr>
+
+        <tr>
+          <th scope="row">Parking</th>
+            <?php foreach($hotels as $hotel): ?>
+              <td>
+                <?=$hotel["parking"] ?>
+              </td>
+            <?php endforeach; ?>
+        </tr>
+
+        <tr>
+          <th scope="row">Vote</th>
+            <?php foreach($hotels as $hotel): ?>
+              <td>
+                <?=$hotel["vote"] ?>
+              </td>
+            <?php endforeach; ?>
+        </tr>
+
+        <tr>
+          <th scope="row">Distance to center</th>
+            <?php foreach($hotels as $hotel): ?>
+              <td>
+                <?=$hotel["distance_to_center"] ?>
+              </td>
+            <?php endforeach; ?>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
 
 </body>
 </html>
