@@ -80,55 +80,31 @@
 
 
   <div class="col-10 mx-auto mt-5">
+
+    <!-- TABELLA -->
     <table class="table table-bordered table-success">
+      <thead>
+        <tr class="table-warning">
+          <th scope="col">Name</th>
+          <th scope="col">Description</th>
+          <th scope="col">Parking</th>
+          <th scope="col">Vote</th>
+          <th scope="col">Distance to center</th>
+        </tr>
+      </thead>
       <tbody>
-        <tr class="table-warning">
-          <th scope="row">Name</th>
-          <?php foreach($hotels as $hotel): ?>
-            <td>
-              <?= $hotel["name"] ?>
-            </td>
-          <?php endforeach; ?>
-        </tr>
-
+        <?php foreach($filtered_hotels as $hotel): ?>
         <tr>
-          <th scope="row">Description</th>
-            <?php foreach($hotels as $hotel): ?>
-              <td>
-                <?= $hotel["description"] ?>
-              </td>
-            <?php endforeach; ?>
+          <td><?= $hotel['name'] ?></td>
+          <td><?= $hotel['description'] ?></td>
+          <td><?= $hotel['parking'] ? 'Sì' : 'No' ?></td>
+          <td><?= $hotel['vote'] ?></td>
+          <td><?= $hotel['distance_to_center'] ?></td>
         </tr>
-
-        <tr class="table-warning">
-          <th scope="row">Parking</th>
-            <?php foreach($hotels as $hotel): ?>
-              <td>
-                <?= $hotel["parking"] ? 'Sì' : 'No' ?>
-              </td>
-            <?php endforeach; ?>
-        </tr>
-
-        <tr>
-          <th scope="row">Vote</th>
-            <?php foreach($hotels as $hotel): ?>
-              <td>
-                <?= $hotel["vote"] ?>
-              </td>
-            <?php endforeach; ?>
-        </tr>
-
-        <tr class="table-warning">
-          <th scope="row">Distance to center</th>
-            <?php foreach($hotels as $hotel): ?>
-              <td>
-                <?= $hotel["distance_to_center"] ?>
-              </td>
-            <?php endforeach; ?>
-        </tr>
-
       </tbody>
+      <?php endforeach; ?>
     </table>
+
   </div>
 
 
