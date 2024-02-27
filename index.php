@@ -1,40 +1,6 @@
 <?php
 
-  require_once "./main.php";
-
-  $form_sent = !empty($_GET);
-
-  // $filtered_hotels = [];
-  $filtered_hotels = ($form_sent) ? [] : $hotels; 
-
-
-  if($form_sent) {
-    
-    //salvo in una variabile il fatto che checkbox sia selezionato
-    $parking_checkbox_selected = ($_GET['parking-checkbox']== 'yes') ? true : false;
-  
-    //salvo in una variabile il numero del voto selezionato
-    $vote = (int) $_GET['vote'];
-    // echo ($vote);
-
-    foreach($hotels as $hotel) {
-      if($parking_checkbox_selected){
-        if($hotel['parking'] == $parking_checkbox_selected && $hotel['vote'] >= $vote) {
-          $filtered_hotels[] = $hotel;
-        }
-      } else { //else perché se è falsa, cioè non checkato il parcheggio
-        if($hotel['vote'] >= $vote) {
-          $filtered_hotels[] = $hotel;
-        }
-      }
-    }
-
-
-
-}
-
-
-
+  require_once __DIR__ . '/logic/main.php'
 
 ?>
 
@@ -69,7 +35,7 @@
 
       <div class="col-1">
         <label class="form-label">Voto</label>
-        <input type="number" min= "1" max= "5" class="form-control" name="vote">
+        <input type="number" min= "1" max= "5" placeholder="1" class="form-control" name="vote">
       </div>
 
       <div class="col-12">
@@ -87,20 +53,14 @@
         <tr class="table-warning">
           <th scope="col">Name</th>
           <th scope="col">Description</th>
-          <th scope="col">Parking</th>
-          <th scope="col">Vote</th>
-          <th scope="col">Distance to center</th>
+          <th scope="col" class="text-center">Parking</th>
+          <th scope="col" class="text-center">Vote</th>
+          <th scope="col" class="text-center">Distance to center</th>
         </tr>
       </thead>
       <tbody>
         <?php foreach($filtered_hotels as $hotel): ?>
-        <tr>
-          <td><?= $hotel['name'] ?></td>
-          <td><?= $hotel['description'] ?></td>
-          <td><?= $hotel['parking'] ? 'Sì' : 'No' ?></td>
-          <td><?= $hotel['vote'] ?></td>
-          <td><?= $hotel['distance_to_center'] ?></td>
-        </tr>
+          <?php include __DIR__ . '/template/table-row.php'?>
       </tbody>
       <?php endforeach; ?>
     </table>
