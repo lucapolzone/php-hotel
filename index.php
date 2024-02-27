@@ -20,29 +20,46 @@
     <form action="./main.php" method="GET" class="row g-3">
       <div class="col-12">
         <label class="form-label">Parcheggio</label>
-        <input type="text" class="form-control" name="hotel-filter">
+        <!-- <input type="text" class="form-control" name="hotel-filter"> -->
+        <div class="d-flex">
+          <div class="form-check me-3" id="checked">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+            <label class="form-check-label" for="flexCheckChecked">
+              Sì
+            </label>
+          </div>
+
+          <div class="form-check" id="default">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+            <label class="form-check-label" for="flexCheckDefault">
+              No
+            </label>
+          </div>
+        </div>
+
+
       </div>
 
-      <!-- <div class="col-12">
+      <div class="col-1">
         <label class="form-label">Voto</label>
-        <input type="text" class="form-control" name="">
-      </div> -->
+        <input type="number" min= "1" max= "5" class="form-control" name="">
+      </div>
 
       <div class="col-12">
-        <button type="submit" class="btn btn-primary">INVIA</button>
+        <button type="submit" class="btn btn-success">INVIA</button>
       </div>
     </form>
   </div>
 
 
   <div class="col-10 mx-auto mt-5">
-    <table class="table table-bordered">
+    <table class="table table-bordered table-success">
       <tbody>
-        <tr>
+        <tr class="table-warning">
           <th scope="row">Name</th>
           <?php foreach($hotels as $hotel): ?>
             <td>
-              <?=$hotel["name"] ?>
+              <?= $hotel["name"] ?>
             </td>
           <?php endforeach; ?>
         </tr>
@@ -51,16 +68,16 @@
           <th scope="row">Description</th>
             <?php foreach($hotels as $hotel): ?>
               <td>
-                <?=$hotel["description"] ?>
+                <?= $hotel["description"] ?>
               </td>
             <?php endforeach; ?>
         </tr>
 
-        <tr>
+        <tr class="table-warning">
           <th scope="row">Parking</th>
-            <?php foreach($filtered_hotels as $hotel): ?>
+            <?php foreach($hotels as $hotel): ?>
               <td>
-                <?=$hotel["parking"] ?>
+                <?= $hotel["parking"] ? 'Sì' : 'No' ?>
               </td>
             <?php endforeach; ?>
         </tr>
@@ -69,16 +86,16 @@
           <th scope="row">Vote</th>
             <?php foreach($hotels as $hotel): ?>
               <td>
-                <?=$hotel["vote"] ?>
+                <?= $hotel["vote"] ?>
               </td>
             <?php endforeach; ?>
         </tr>
 
-        <tr>
+        <tr class="table-warning">
           <th scope="row">Distance to center</th>
             <?php foreach($hotels as $hotel): ?>
               <td>
-                <?=$hotel["distance_to_center"] ?>
+                <?= $hotel["distance_to_center"] ?>
               </td>
             <?php endforeach; ?>
         </tr>
@@ -86,6 +103,9 @@
       </tbody>
     </table>
   </div>
+
+
+
 
 </body>
 </html>

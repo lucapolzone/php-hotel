@@ -38,22 +38,26 @@
     ],
   ];
 
-$form_sent = !empty($_GET);
+
+
+  
+// $form_sent = !empty($_GET);
+// var_dump($form_sent);
 
 $filtered_hotels = [];
 
-if ($form_sent) {
-  $name_filter = $_GET['hotel-filter'] ?? '';
+// if ($form_sent) {
+//   $name_filter = $_GET['hotel-filter'] ?? '';
 
-  foreach($hotels as $hotel) {
-    if (
-        str_contains($hotel['name'], $name_filter) ||
-        str_contains($hotel['name'], $name_filter)
-      ) {
-        $filtered_hotels[] = $hotel;
-    }
-  }
-}
+//   foreach($hotels as $hotel) {
+//     if (
+//         str_contains($hotel['name'], $name_filter) ||
+//         str_contains($hotel['name'], $name_filter)
+//       ) {
+//         $filtered_hotels[] = $hotel;
+//     }
+//   }
+// }
 
 
 ?>
