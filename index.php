@@ -15,10 +15,28 @@
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
-  
+
+  <div class="col-10 mx-auto mt-5">
+    <form action="./main.php" method="GET" class="row g-3">
+      <div class="col-12">
+        <label class="form-label">Parcheggio</label>
+        <input type="text" class="form-control" name="hotel-filter">
+      </div>
+
+      <!-- <div class="col-12">
+        <label class="form-label">Voto</label>
+        <input type="text" class="form-control" name="">
+      </div> -->
+
+      <div class="col-12">
+        <button type="submit" class="btn btn-primary">INVIA</button>
+      </div>
+    </form>
+  </div>
+
+
   <div class="col-10 mx-auto mt-5">
     <table class="table table-bordered">
-
       <tbody>
         <tr>
           <th scope="row">Name</th>
@@ -40,7 +58,7 @@
 
         <tr>
           <th scope="row">Parking</th>
-            <?php foreach($hotels as $hotel): ?>
+            <?php foreach($filtered_hotels as $hotel): ?>
               <td>
                 <?=$hotel["parking"] ?>
               </td>
