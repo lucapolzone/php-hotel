@@ -11,7 +11,13 @@
     
     //salvo in una variabile il fatto che checkbox sia selezionato
     $parking_checkbox_selected = ($_GET['parking-checkbox'] == 'yes') ? true : false;
+  
+    //salvo in una variabile il numero del voto selezionato
+    $vote = (int)$_GET['vote'];
+    // echo ($vote);
   }
+
+
 
 
 
