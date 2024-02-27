@@ -1,5 +1,27 @@
 <?php
+
+
   require_once "./main.php";
+
+  $form_sent = !empty($_GET);
+
+  $filtered_hotels = [];
+
+  if($form_sent) {
+    
+    //salvo in una variabile il fatto che checkbox sia selezionato
+    $parking_checkbox_selected = ($_GET['parking-checkbox'] == 'yes') ? true : false;
+  }
+
+
+
+
+  
+
+
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -21,28 +43,23 @@
       <div class="col-12">
         <label class="form-label">Parcheggio</label>
         <!-- <input type="text" class="form-control" name="hotel-filter"> -->
-        <div class="d-flex">
-          <div class="form-check me-3" id="checked">
-            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-            <label class="form-check-label" for="flexCheckChecked">
-              Sì
-            </label>
+        <div class="d-flex">  
+          <div class="form-check me-3">
+            <label class="form-check-label" for="flexRadioDefault1">Sì</label>
+            <input class="form-check-input" type="radio" value="yes" name="flexRadioDefault" id="flexRadioDefault1" name="parking-checkbox">
           </div>
 
-          <div class="form-check" id="default">
-            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-            <label class="form-check-label" for="flexCheckDefault">
-              No
-            </label>
+          <div class="form-check">
+            <label class="form-check-label" for="flexRadioDefault2">No</label>
+            <input class="form-check-input" type="radio" value="no" name="flexRadioDefault" id="flexRadioDefault2" name="parking-checkbox" checked>
           </div>
-        </div>
-
+        </div>  
 
       </div>
 
       <div class="col-1">
         <label class="form-label">Voto</label>
-        <input type="number" min= "1" max= "5" class="form-control" name="">
+        <input type="number" min= "1" max= "5" class="form-control" name="vote">
       </div>
 
       <div class="col-12">

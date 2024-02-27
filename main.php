@@ -41,10 +41,8 @@
 
 
   
-// $form_sent = !empty($_GET);
-// var_dump($form_sent);
 
-$filtered_hotels = [];
+
 
 // if ($form_sent) {
 //   $name_filter = $_GET['hotel-filter'] ?? '';
