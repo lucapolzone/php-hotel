@@ -1,29 +1,37 @@
 <?php
 
-
   require_once "./main.php";
 
   $form_sent = !empty($_GET);
 
-  $filtered_hotels = [];
+  // $filtered_hotels = [];
+  $filtered_hotels = ($form_sent) ? [] : $hotels; 
+
 
   if($form_sent) {
     
     //salvo in una variabile il fatto che checkbox sia selezionato
-    $parking_checkbox_selected = ($_GET['parking-checkbox'] == 'yes') ? true : false;
+    $parking_checkbox_selected = ($_GET['parking-checkbox']== 'yes') ? true : false;
   
     //salvo in una variabile il numero del voto selezionato
-    $vote = (int)$_GET['vote'];
+    $vote = (int) $_GET['vote'];
     // echo ($vote);
-  }
+
+    foreach($hotels as $hotel) {
+      if($parking_checkbox_selected){
+        if($hotel['parking'] == $parking_checkbox_selected && $hotel['vote'] >= $vote) {
+          $filtered_hotels[] = $hotel;
+        }
+      } else { //else perché se è falsa, cioè non checkato il parcheggio
+        if($hotel['vote'] >= $vote) {
+          $filtered_hotels[] = $hotel;
+        }
+      }
+    }
 
 
 
-
-
-
-  
-
+}
 
 
 
@@ -45,20 +53,16 @@
 <body>
 
   <div class="col-10 mx-auto mt-5">
-    <form action="./main.php" method="GET" class="row g-3">
+    <form method="GET" class="row g-3">
       <div class="col-12">
         <label class="form-label">Parcheggio</label>
         <!-- <input type="text" class="form-control" name="hotel-filter"> -->
-        <div class="d-flex">  
-          <div class="form-check me-3">
-            <label class="form-check-label" for="flexRadioDefault1">Sì</label>
-            <input class="form-check-input" type="radio" value="yes" name="flexRadioDefault" id="flexRadioDefault1" name="parking-checkbox">
-          </div>
+        <div class="">  
+            <label class="form-check-label" for="parking">Sì</label>
+            <input type="radio" name="parking-checkbox" id="parking" class="form-check-input" value="yes">
 
-          <div class="form-check">
-            <label class="form-check-label" for="flexRadioDefault2">No</label>
-            <input class="form-check-input" type="radio" value="no" name="flexRadioDefault" id="flexRadioDefault2" name="parking-checkbox" checked>
-          </div>
+            <label class="form-check-label" for="parking">No</label>
+            <input type="radio" name="parking-checkbox" id="parking" class="form-check-input" value="no" checked>
         </div>  
 
       </div>

@@ -40,22 +40,4 @@
 
 
 
-  
-
-
-
-// if ($form_sent) {
-//   $name_filter = $_GET['hotel-filter'] ?? '';
-
-//   foreach($hotels as $hotel) {
-//     if (
-//         str_contains($hotel['name'], $name_filter) ||
-//         str_contains($hotel['name'], $name_filter)
-//       ) {
-//         $filtered_hotels[] = $hotel;
-//     }
-//   }
-// }
-
-
 ?>
