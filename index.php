@@ -1,7 +1,5 @@
 <?php
-
   require_once "./main.php";
-
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +15,28 @@
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
-  
+  <ul>
+    <?php foreach($hotels as $hotel): ?>
+      <li>
+        <?=$hotel["name"] ?>
+      </li>
+      <li>  
+        <?=$hotel["description"] ?>
+      </li>
+      <li>  
+        <?=$hotel["parking"] ?>
+      </li>
+      <li>  
+        <?=$hotel["vote"] ?>
+      </li>
+      <li>  
+        <?=$hotel["distance_to_center"] ?>
+      </li>
+      <li>
+        <br>
+      </li>
+    <?php endforeach; ?>
+  </ul>
 
 </body>
 </html>
